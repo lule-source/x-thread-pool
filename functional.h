@@ -36,6 +36,8 @@ namespace arrow
             {
                 explicit FnImpl(Fn fn) : fn_(std::move(fn)) {}
                 // 用于显式地指示当前函数是覆盖（override）基类中的虚函数
+                // std::move 用于将对象的所有权从一个对象转移到另一个对象，标记对象为右值。
+                // std::forward 用于在函数模板中进行完美转发，保持参数的值类别不变
                 R invoke(A &&...a) override { return std::move(fn_)(std::forward<A &&>(a)...); }
                 Fn fn_;
             };
