@@ -49,9 +49,10 @@ public:
             statusString = "ok";
             break;
         case StatusCode::Cancelled:
-            statusString = "cancelled" break;
+            statusString = "cancelled";
+            break;
         default:
-            statusString = : "unknown";
+            statusString =  "unknown";
             break;
         }
         if (!empty(msg_))
