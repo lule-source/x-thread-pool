@@ -14,7 +14,7 @@ namespace arrow
             FnOnce() = default;
             template <typename Fn,
                       typename = typename std::enable_if < std::is_convertible<
-                                                               decltype(std::declval<Fn &&>()(std : declval<A>()...)), R::value::type>
+                                                               decltype(std::declval<Fn &&>()(std : declval<A>()...)), R>::value>::type>
                                                                FnOnce(Fn fn) : impl_(new FnImpl<Fn>(std::move(fn)))
             {
             }
